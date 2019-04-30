@@ -1,7 +1,5 @@
 #JAVA8新特性
 
-原文地址 [https://www.cnblogs.com/huyunfan/p/7456535.html](https://www.cnblogs.com/huyunfan/p/7456535.html)
-
 * **default拓展方法**
 
   default关键字为接口声明添加非抽象方法的实现,也称为拓展方法

@@ -1,7 +1,5 @@
 #JDK动态代理
 
-[原文地址](https://blog.csdn.net/xiaokang123456kao/article/details/77679848)
-
 ##代理的含义
 
 * 代理类的目的是为其他对象提供一个代理以控制对某个对象的访问。
