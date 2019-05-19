@@ -1,21 +1,16 @@
 
 
-## 简介
+# Summary
 
-## 章节一
+* [Introduction](README.md)
 
-- [JDK动态代理](Java/JDK动态代理.md)
-- [JAVA8新特性](Java/Java8新特性.md)
-- [SpringCloud笔记](Java/SpringCloud笔记.md)
+## Java相关
 
-## 章节二
+* [JVM原理讲解](content/java/java1.md)
 
-- [JDK动态代理](Java/JDK动态代理.md)
-- [JAVA8新特性](Java/Java8新特性.md)
-- [SpringCloud笔记](Java/SpringCloud笔记.md)
+## 代码片段
 
-## 章节三
+* [反射工具类](content/codePart/part1.md)
+* [Cookie工具类](content/codePart/part2.md)
+* [Java图片高保真缩放](content/codePart/part3.md)
 
-- [JDK动态代理](Java/JDK动态代理.md)
-- [JAVA8新特性](Java/Java8新特性.md)
-- [SpringCloud笔记](Java/SpringCloud笔记.md)
