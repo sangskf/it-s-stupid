@@ -3,29 +3,19 @@
   "description": "蠢萌小呆瓜的工作日志",
   "language": "zh-hans",
   "plugins": [
-    "disqus",
     "github",
-    "prism",
     "-highlight",
-    "baidu",
-    "splitter",
     "sitemap"
   ],
   "pluginsConfig": {
-    "disqus": {
-      "shortName": "its-stupid-handbook"
-    },
     "github": {
       "url": "https://github.com/sangskf/it-s-stupid"
-    },
-    "baidu": {
-        "token": "a9787f0ab45d5e237bab522431d0a7ec"
     },
     "sitemap": {
         "hostname": "http://books.sangkf.cn/"
     }
   },
   "styles": {
-    
+    "website": "styles/website.css"
   }
 }
