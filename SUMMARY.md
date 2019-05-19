@@ -7,6 +7,7 @@
 ## Java相关
 
 * [JVM原理讲解](content/java/java1.md)
+* [java同步系列之JMM](content/java/java2.md)
 
 ## 代码片段
 
