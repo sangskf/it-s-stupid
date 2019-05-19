@@ -1,10 +1,10 @@
 
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-hans" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>JDK动态代理 · GitBook</title>
+        <title>JDK动态代理 · 蠢萌小呆瓜的工作日志</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -17,7 +17,15 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
                 
             
                 
@@ -32,18 +40,6 @@
 
     
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
     
 
         
@@ -71,7 +67,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+    <input type="text" placeholder="输入并搜索" />
 </div>
 
             
@@ -164,7 +160,7 @@
 
     <li>
         <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
+            本书使用 GitBook 发布
         </a>
     </li>
 </ul>
@@ -215,10 +211,10 @@
 <h2 id="&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x76F8;&#x5173;&#x7C7B;&#x4ECB;&#x7ECD;">&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x76F8;&#x5173;&#x7C7B;&#x4ECB;&#x7ECD;</h2>
 <ol>
 <li><p>InvocationHandler</p>
-<pre><code> &#x6BCF;&#x4E00;&#x4E2A;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x7C7B;&#x90FD;&#x5FC5;&#x987B;&#x8981;&#x5B9E;&#x73B0;InvocationHandler&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x5E76;&#x4E14;&#x6BCF;&#x4E2A;&#x4EE3;&#x7406;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x90FD;&#x5173;&#x8054;&#x4E86;&#x4E00;&#x4E2A;Handler,&#x5F53;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x8C03;&#x7528;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#x5C31;&#x4F1A;&#x88AB;&#x8F6C;&#x53D1;&#x4E3A;&#x7531;InvocationHandler&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x7684;Invoke&#x65B9;&#x6CD5;&#x6765;&#x8FDB;&#x884C;&#x8C03;&#x7528;&#x3002;
+<pre class="language-"><code> &#x6BCF;&#x4E00;&#x4E2A;&#x52A8;&#x6001;&#x4EE3;&#x7406;&#x7C7B;&#x90FD;&#x5FC5;&#x987B;&#x8981;&#x5B9E;&#x73B0;InvocationHandler&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x5E76;&#x4E14;&#x6BCF;&#x4E2A;&#x4EE3;&#x7406;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x90FD;&#x5173;&#x8054;&#x4E86;&#x4E00;&#x4E2A;Handler,&#x5F53;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x8C03;&#x7528;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x8C03;&#x7528;&#x5C31;&#x4F1A;&#x88AB;&#x8F6C;&#x53D1;&#x4E3A;&#x7531;InvocationHandler&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x7684;Invoke&#x65B9;&#x6CD5;&#x6765;&#x8FDB;&#x884C;&#x8C03;&#x7528;&#x3002;
 </code></pre><p>InvocationHandler&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x7684;&#x552F;&#x4E00;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;invoke&#x65B9;&#x6CD5;:</p>
-<pre><code class="lang-java"><span class="hljs-function">Object <span class="hljs-title">invoke</span><span class="hljs-params">(Object proxy, Method method, Object[] args)</span> <span class="hljs-keyword">throws</span> Throwable
-</span></code></pre>
+<pre class="language-"><code class="lang-java"><span class="token class-name">Object</span> <span class="token function">invoke</span><span class="token punctuation">(</span><span class="token class-name">Object</span> proxy<span class="token punctuation">,</span> <span class="token class-name">Method</span> method<span class="token punctuation">,</span> <span class="token class-name">Object</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token keyword">throws</span> <span class="token class-name">Throwable</span>
+</code></pre>
 <p>&#x4E09;&#x4E2A;&#x53C2;&#x6570;:</p>
 <ul>
 <li>proxy&#xFF1A; &#x6307;&#x4EE3;JDK&#x52A8;&#x6001;&#x751F;&#x6210;&#x7684;&#x6700;&#x7EC8;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;</li>
@@ -228,11 +224,11 @@
 </li>
 <li><p>Proxy</p>
 <p>&#x200B;    Proxy&#x8FD9;&#x4E2A;&#x7C7B;&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x7528;&#x6765;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x7684;&#x7C7B;&#xFF0C;&#x5B83;&#x63D0;&#x4F9B;&#x4E86;&#x8BB8;&#x591A;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x4F46;&#x662F;&#x6211;&#x4EEC;&#x7528;&#x7684;&#x6700;&#x591A;&#x7684;&#x5C31;&#x662F; newProxyInstance &#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;</p>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> Object <span class="hljs-title">newProxyInstance</span><span class="hljs-params">(ClassLoader loader,
-                                          Class&lt;?&gt;[] interfaces,
-                                          InvocationHandler h)</span>
-        <span class="hljs-keyword">throws</span> IllegalArgumentException
-</span></code></pre>
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token class-name">Object</span> <span class="token function">newProxyInstance</span><span class="token punctuation">(</span><span class="token class-name">ClassLoader</span> loader<span class="token punctuation">,</span>
+                                          <span class="token class-name">Class</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token operator">?</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">[</span><span class="token punctuation">]</span> interfaces<span class="token punctuation">,</span>
+                                          <span class="token class-name">InvocationHandler</span> h<span class="token punctuation">)</span>
+        <span class="token keyword">throws</span> <span class="token class-name">IllegalArgumentException</span>
+</code></pre>
 <p>&#x8FD9;&#x4E2A;&#x65B9;&#x6CD5;&#x7684;&#x4F5C;&#x7528;&#x5C31;&#x662F;&#x5F97;&#x5230;&#x4E00;&#x4E2A;&#x52A8;&#x6001;&#x7684;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#xFF0C;&#x5176;&#x63A5;&#x6536;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x770B;&#x770B;&#x8FD9;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x6240;&#x4EE3;&#x8868;&#x7684;&#x542B;&#x4E49;&#xFF1A;</p>
 <ul>
 <li>loader:&#x3000;&#x4E00;&#x4E2A;ClassLoader&#x5BF9;&#x8C61;&#xFF0C;&#x5B9A;&#x4E49;&#x4E86;&#x7531;&#x54EA;&#x4E2A;ClassLoader&#x6765;&#x5BF9;&#x751F;&#x6210;&#x7684;&#x4EE3;&#x7406;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x52A0;&#x8F7D;</li>
@@ -515,7 +511,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"JDK动态代理","level":"1.3","depth":1,"next":{"title":"SpringCloud笔记","level":"1.4","depth":1,"path":"Java/SpringCloud笔记.md","ref":"Java/SpringCloud笔记.md","articles":[]},"previous":{"title":"Java8新特性","level":"1.2","depth":1,"path":"Java/Java8新特性.md","ref":"Java/Java8新特性.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Java/JDK动态代理.md","mtime":"2019-05-04T07:32:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-19T02:08:18.540Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"JDK动态代理","level":"1.3","depth":1,"next":{"title":"SpringCloud笔记","level":"1.4","depth":1,"path":"Java/SpringCloud笔记.md","ref":"Java/SpringCloud笔记.md","articles":[]},"previous":{"title":"Java8新特性","level":"1.2","depth":1,"path":"Java/Java8新特性.md","ref":"Java/Java8新特性.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","github","prism","-highlight","baidu","splitter","sitemap"],"styles":{},"pluginsConfig":{"prism":{},"disqus":{"useIdentifier":false,"shortName":"its-stupid-handbook"},"github":{"url":"https://github.com/sangskf/it-s-stupid"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"sitemap":{"hostname":"http://books.sangkf.cn/"},"baidu":{"token":"a9787f0ab45d5e237bab522431d0a7ec"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"蠢萌小呆瓜的工作日志","language":"zh-hans","gitbook":"*","description":"蠢萌小呆瓜的工作日志"},"file":{"path":"Java/JDK动态代理.md","mtime":"2019-05-04T07:32:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-19T02:43:21.124Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -523,6 +519,26 @@
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>

@@ -1,10 +1,10 @@
 
 <!DOCTYPE HTML>
-<html lang="" >
+<html lang="zh-hans" >
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Java8新特性 · GitBook</title>
+        <title>Java8新特性 · 蠢萌小呆瓜的工作日志</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -17,7 +17,15 @@
     
             
                 
-                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
                 
             
                 
@@ -32,18 +40,6 @@
 
     
 
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
     
 
         
@@ -71,7 +67,7 @@
         
             
 <div id="book-search-input" role="search">
-    <input type="text" placeholder="Type to search" />
+    <input type="text" placeholder="输入并搜索" />
 </div>
 
             
@@ -164,7 +160,7 @@
 
     <li>
         <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
-            Published with GitBook
+            本书使用 GitBook 发布
         </a>
     </li>
 </ul>
@@ -206,60 +202,60 @@
 <ul>
 <li><p><strong>default&#x62D3;&#x5C55;&#x65B9;&#x6CD5;</strong></p>
 <p>default&#x5173;&#x952E;&#x5B57;&#x4E3A;&#x63A5;&#x53E3;&#x58F0;&#x660E;&#x6DFB;&#x52A0;&#x975E;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;,&#x4E5F;&#x79F0;&#x4E3A;&#x62D3;&#x5C55;&#x65B9;&#x6CD5;</p>
-<pre><code class="lang-java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Formula</span> </span>{
-    <span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span></span>;
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Formula</span> <span class="token punctuation">{</span>
+    <span class="token keyword">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-    <span class="hljs-function"><span class="hljs-keyword">default</span> <span class="hljs-keyword">void</span> <span class="hljs-title">before</span><span class="hljs-params">()</span> </span>{
-        System.out.println(<span class="hljs-string">&quot;&#x6211;&#x662F;&#x62D3;&#x5C55;&#x65B9;&#x6CD5;&quot;</span>);
-    }
-}
+    <span class="token keyword">default</span> <span class="token keyword">void</span> <span class="token function">before</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;&#x6211;&#x662F;&#x62D3;&#x5C55;&#x65B9;&#x6CD5;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FormulaService</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Formula</span> </span>{
+<span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">FormulaService</span> <span class="token keyword">implements</span> <span class="token class-name">Formula</span> <span class="token punctuation">{</span>
 
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span> </span>{
-        before();
-        System.out.println(<span class="hljs-string">&quot;&#x6211;&#x662F;override&#x65B9;&#x6CD5;&quot;</span>);
-    }
-}
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">before</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;&#x6211;&#x662F;override&#x65B9;&#x6CD5;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </li>
 <li><p><strong>Lambda&#x8868;&#x8FBE;&#x5F0F;</strong></p>
 <p>java8&#x5F15;&#x5165;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#xFF0C;Lambda&#x5219;&#x662F;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x7684;&#x57FA;&#x7840;&#x3002;</p>
-<pre><code class="lang-java">List&lt;String&gt; list = Arrays.asList(<span class="hljs-string">&quot;a&quot;</span>, <span class="hljs-string">&quot;b&quot;</span>, <span class="hljs-string">&quot;c&quot;</span>);
+<pre class="language-"><code class="lang-java"><span class="token class-name">List</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> list <span class="token operator">=</span> <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">asList</span><span class="token punctuation">(</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;b&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;c&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// java8&#x4E4B;&#x524D;</span>
-Collections.sort(list, <span class="hljs-keyword">new</span> Comparator&lt;String&gt;(){
-    <span class="hljs-meta">@Override</span>
-    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(String o1, String o2)</span> </span>{
-        <span class="hljs-keyword">return</span> o1.compareTo(o2);
-    }
-});
+<span class="token comment">// java8&#x4E4B;&#x524D;</span>
+<span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Comparator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token annotation punctuation">@Override</span>
+    <span class="token keyword">public</span> <span class="token keyword">int</span> <span class="token function">compare</span><span class="token punctuation">(</span><span class="token class-name">String</span> o1<span class="token punctuation">,</span> <span class="token class-name">String</span> o2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> o1<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>o2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// lambda</span>
-Collections.sort(list, (String o1, String o2) -&gt; {
-            <span class="hljs-keyword">return</span> o2.compareTo(o1);
-});
+<span class="token comment">// lambda</span>
+<span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token class-name">String</span> o1<span class="token punctuation">,</span> <span class="token class-name">String</span> o2<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> o2<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>o1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// &#x7B80;&#x6D01;lambda</span>
-Collections.sort(list, (String o1, String o2) -&gt;  o2.compareTo(o1));
+<span class="token comment">// &#x7B80;&#x6D01;lambda</span>
+<span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token class-name">String</span> o1<span class="token punctuation">,</span> <span class="token class-name">String</span> o2<span class="token punctuation">)</span> <span class="token operator">-&gt;</span>  o2<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>o1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// &#x66F4;&#x7B80;&#x6D01;lambda</span>
-Collections.sort(list, (o1, o2) -&gt;  o2.compareTo(o1));
+<span class="token comment">// &#x66F4;&#x7B80;&#x6D01;lambda</span>
+<span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> <span class="token punctuation">(</span>o1<span class="token punctuation">,</span> o2<span class="token punctuation">)</span> <span class="token operator">-&gt;</span>  o2<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>o1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="hljs-comment">// &#x4E5F;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x5199;</span>
-Collections.sort(list, Comparator.comparing(String::toString));
+<span class="token comment">// &#x4E5F;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#x5199;</span>
+<span class="token class-name">Collections</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>list<span class="token punctuation">,</span> <span class="token class-name">Comparator</span><span class="token punctuation">.</span><span class="token function">comparing</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token operator">:</span><span class="token operator">:</span><span class="token function">toString</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 </li>
 <li><p><strong>&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;</strong></p>
 <p>&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#x6709;&#x4E14;&#x53EA;&#x80FD;&#x6709;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x7533;&#x660E;&#xFF0C;&#x5176;&#x4E2D;&#x8BE5;&#x6CE8;&#x610F;&#x7684;&#x662F; @FunctionalInterface &#x6CE8;&#x89E3;&#xFF0C;&#x6B64;&#x65F6;&#x5982;&#x679C;&#x5728;&#x63A5;&#x53E3;&#x4E2D;&#x5B9A;&#x4E49;&#x4E86;&#x7B2C;&#x4E8C;&#x4E2A;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x5C06;&#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002;&#x5F53;&#x7136;&#x5982;&#x679C;&#x4E0D;&#x52A0;&#x8BE5;&#x6CE8;&#x89E3;&#x4E5F;&#x4E0D;&#x662F;&#x4E0D;&#x884C;&#xFF0C;&#x5982;&#x679C;&#x63A5;&#x53E3;&#x4E2D;&#x6709;&#x591A;&#x4E2A;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#xFF0C;&#x800C;&#x4F60;&#x53C8;&#x4F7F;&#x7528;&#x4E86;lambda&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x5219;&#x5728;&#x8C03;&#x7528;&#x5904;&#x4F1A;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x3002;</p>
-<pre><code class="lang-java"><span class="hljs-meta">@FunctionalInterface</span>
-<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Formula</span>&lt;<span class="hljs-title">F</span>,<span class="hljs-title">T</span>&gt;</span>{
-    <span class="hljs-function">T <span class="hljs-title">convert</span><span class="hljs-params">(F var1)</span></span>;
-}
+<pre class="language-"><code class="lang-java"><span class="token annotation punctuation">@FunctionalInterface</span>
+<span class="token keyword">public</span> <span class="token keyword">interface</span> <span class="token class-name">Formula</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">F</span><span class="token punctuation">,</span><span class="token class-name">T</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">{</span>
+    <span class="token class-name">T</span> <span class="token function">convert</span><span class="token punctuation">(</span><span class="token class-name">F</span> var1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 
-Formula&lt;String,Integer&gt; function = (var1 -&gt; Integer.valueOf(var1));
-Integer var2 = function.convert(<span class="hljs-string">&quot;1000&quot;</span>);
+<span class="token class-name">Formula</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> function <span class="token operator">=</span> <span class="token punctuation">(</span>var1 <span class="token operator">-&gt;</span> <span class="token class-name">Integer</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>var1<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Integer</span> var2 <span class="token operator">=</span> function<span class="token punctuation">.</span><span class="token function">convert</span><span class="token punctuation">(</span><span class="token string">&quot;1000&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 </li>
 <li><p><strong>&#x65B9;&#x6CD5;&#x548C;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5F15;&#x7528;</strong></p>
@@ -272,29 +268,29 @@ Integer var2 = function.convert(<span class="hljs-string">&quot;1000&quot;</span
 | &#x5F15;&#x7528;&#x6784;&#x9020;&#x65B9;&#x6CD5;                     | className :: new                  |</p>
 <ol>
 <li><p><strong>&#x5F15;&#x7528;&#x9759;&#x6001;&#x65B9;&#x6CD5;</strong></p>
-<pre><code class="lang-java">Formula&lt;String,Integer&gt; function = (Integer::valueOf);
-Integer var2 = function.convert(<span class="hljs-string">&quot;1000&quot;</span>);
+<pre class="language-"><code class="lang-java"><span class="token class-name">Formula</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span><span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> function <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token class-name">Integer</span><span class="token operator">:</span><span class="token operator">:</span><span class="token function">valueOf</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Integer</span> var2 <span class="token operator">=</span> function<span class="token punctuation">.</span><span class="token function">convert</span><span class="token punctuation">(</span><span class="token string">&quot;1000&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 </li>
 <li><p><strong>&#x5F15;&#x7528;&#x67D0;&#x4E2A;&#x7C7B;&#x578B;&#x7684;&#x4EFB;&#x610F;&#x5BF9;&#x8C61;&#x7684;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;</strong></p>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-  String[] array = {<span class="hljs-string">&quot;&#x8D31;&#x660E;&quot;</span>, <span class="hljs-string">&quot;&#x5B66;&#x53CB;&quot;</span>};
-  Arrays.sort(array, String::compareTo);
-}
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> array <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&quot;&#x8D31;&#x660E;&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;&#x5B66;&#x53CB;&quot;</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token class-name">Arrays</span><span class="token punctuation">.</span><span class="token function">sort</span><span class="token punctuation">(</span>array<span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token operator">:</span><span class="token operator">:</span><span class="token function">compareTo</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </li>
 <li><p><strong>&#x5F15;&#x7528;&#x6784;&#x9020;&#x65B9;&#x6CD5;</strong></p>
-<pre><code class="lang-java"><span class="hljs-comment">// &#x5B9A;&#x4E49;&#x5DE5;&#x5382;</span>
-<span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">PersonFactory</span>&lt;<span class="hljs-title">P</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Person</span>&gt;</span>{
-   <span class="hljs-function">P <span class="hljs-title">create</span><span class="hljs-params">(String name)</span></span>;
-}
-<span class="hljs-comment">// Person&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;</span>
-<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Person</span><span class="hljs-params">(String name)</span> </span>{
-   <span class="hljs-keyword">this</span>.name = name;
-}
-<span class="hljs-comment">// &#x521B;&#x5EFA;</span>
-PersonFactory&lt;Person&gt; factory = Person::<span class="hljs-keyword">new</span>;
-factory.create(<span class="hljs-string">&quot;&#x8D31;&#x660E;&quot;</span>);
+<pre class="language-"><code class="lang-java"><span class="token comment">// &#x5B9A;&#x4E49;&#x5DE5;&#x5382;</span>
+<span class="token keyword">interface</span> <span class="token class-name">PersonFactory</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">P</span> <span class="token keyword">extends</span> <span class="token class-name">Person</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">{</span>
+   <span class="token class-name">P</span> <span class="token function">create</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// Person&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;</span>
+<span class="token keyword">public</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token class-name">String</span> name<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// &#x521B;&#x5EFA;</span>
+<span class="token class-name">PersonFactory</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Person</span><span class="token punctuation">&gt;</span></span> factory <span class="token operator">=</span> <span class="token class-name">Person</span><span class="token operator">:</span><span class="token operator">:</span><span class="token keyword">new</span><span class="token punctuation">;</span>
+factory<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token string">&quot;&#x8D31;&#x660E;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 </li>
 </ol>
@@ -303,22 +299,22 @@ factory.create(<span class="hljs-string">&quot;&#x8D31;&#x660E;&quot;</span>);
 <p>lambda&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5C40;&#x90E8;&#x5BF9;&#x5E94;&#x7684;&#x5916;&#x90E8;&#x533A;&#x57DF;&#x7684;&#x5C40;&#x90E8;final&#x53D8;&#x91CF;&#xFF0C;&#x4EE5;&#x53CA;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x548C;&#x9759;&#x6001;&#x53D8;&#x91CF;&#x3002;</p>
 <ol>
 <li><p><strong>&#x8BBF;&#x95EE;&#x6210;&#x5458;&#x53D8;&#x91CF;</strong></p>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span></span>{
-    <span class="hljs-keyword">final</span> String p1 = <span class="hljs-string">&quot;&#x8D31;&#x660E;&quot;</span>;
-    <span class="hljs-keyword">final</span> String p2 = <span class="hljs-string">&quot;&#x5B66;&#x53CB;&quot;</span>;
-    Formula function = (person1, person2) -&gt; p1.compareTo(p2);
-}
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">final</span> <span class="token class-name">String</span> p1 <span class="token operator">=</span> <span class="token string">&quot;&#x8D31;&#x660E;&quot;</span><span class="token punctuation">;</span>
+    <span class="token keyword">final</span> <span class="token class-name">String</span> p2 <span class="token operator">=</span> <span class="token string">&quot;&#x5B66;&#x53CB;&quot;</span><span class="token punctuation">;</span>
+    <span class="token class-name">Formula</span> function <span class="token operator">=</span> <span class="token punctuation">(</span>person1<span class="token punctuation">,</span> person2<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> p1<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>p2<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 <p>&#x4E0E;java8&#x4EE5;&#x4E0B;&#x7248;&#x672C;&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;p1 p2&#x4F60;&#x53EF;&#x4EE5;&#x4E0D;&#x4FEE;&#x9970;&#x6210;final &#x4E5F;&#x4E0D;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x4F60;&#x60F3;&#x4FEE;&#x6539;&#x4ED6;&#x4EEC;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x5219;&#x4F1A;&#x544A;&#x8BC9;&#x4F60;&#x8FD9;&#x662F;&#x4E0D;&#x88AB;&#x5141;&#x8BB8;&#x7684;&#x3002;</p>
 </li>
 <li><p><strong>&#x8BBF;&#x95EE;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x548C;&#x9759;&#x6001;&#x53D8;&#x91CF;</strong></p>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSomething</span><span class="hljs-params">()</span></span>{;
-   Formula function = (person1, person2) -&gt;{
-       dehua = <span class="hljs-string">&quot;&#x8D31;&#x660E;&quot;</span>;
-       xueyou=<span class="hljs-string">&quot;&#x5B66;&#x53CB;&quot;</span>;
-       <span class="hljs-keyword">return</span> dehua.compareTo(xueyou);
-   };
-}
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">void</span> <span class="token function">doSomething</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span><span class="token punctuation">;</span>
+   <span class="token class-name">Formula</span> function <span class="token operator">=</span> <span class="token punctuation">(</span>person1<span class="token punctuation">,</span> person2<span class="token punctuation">)</span> <span class="token operator">-&gt;</span><span class="token punctuation">{</span>
+       dehua <span class="token operator">=</span> <span class="token string">&quot;&#x8D31;&#x660E;&quot;</span><span class="token punctuation">;</span>
+       xueyou<span class="token operator">=</span><span class="token string">&quot;&#x5B66;&#x53CB;&quot;</span><span class="token punctuation">;</span>
+       <span class="token keyword">return</span> dehua<span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>xueyou<span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </li>
 </ol>
@@ -328,67 +324,67 @@ factory.create(<span class="hljs-string">&quot;&#x8D31;&#x660E;&quot;</span>);
 <ol>
 <li><p><strong>Predicates</strong>
 Predicate&#x662F;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x7C7B;&#x578B;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x8BE5;&#x51FD;&#x6570;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x8F93;&#x5165;&#x53C2;&#x6570;&#xFF0C;&#x4ED6;&#x5305;&#x542B;&#x4E86;&#x591A;&#x79CD;&#x9ED8;&#x8BA4;&#x5B9E;&#x73B0;&#x3002;</p>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-   Predicate&lt;String&gt; predicate = (s) -&gt; s.contains(<span class="hljs-string">&quot;&#x8D31;&#x660E;&quot;</span>);
-   String var1 = <span class="hljs-string">&quot;&#x725B;&#x8D31;&#x660E;&quot;</span>;
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token class-name">Predicate</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> predicate <span class="token operator">=</span> <span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> s<span class="token punctuation">.</span><span class="token function">contains</span><span class="token punctuation">(</span><span class="token string">&quot;&#x8D31;&#x660E;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token class-name">String</span> var1 <span class="token operator">=</span> <span class="token string">&quot;&#x725B;&#x8D31;&#x660E;&quot;</span><span class="token punctuation">;</span>
 
-   predicate.test(var1);              <span class="hljs-comment">// true</span>
-   predicate.negate().test(var1);     <span class="hljs-comment">// false</span>
+   predicate<span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>var1<span class="token punctuation">)</span><span class="token punctuation">;</span>              <span class="token comment">// true</span>
+   predicate<span class="token punctuation">.</span><span class="token function">negate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>var1<span class="token punctuation">)</span><span class="token punctuation">;</span>     <span class="token comment">// false</span>
 
-   Predicate&lt;Boolean&gt; nonNull = Objects::nonNull;
-   Predicate&lt;Boolean&gt; isNull = Objects::isNull;
+   <span class="token class-name">Predicate</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Boolean</span><span class="token punctuation">&gt;</span></span> nonNull <span class="token operator">=</span> <span class="token class-name">Objects</span><span class="token operator">:</span><span class="token operator">:</span><span class="token function">nonNull</span><span class="token punctuation">;</span>
+   <span class="token class-name">Predicate</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Boolean</span><span class="token punctuation">&gt;</span></span> isNull <span class="token operator">=</span> <span class="token class-name">Objects</span><span class="token operator">:</span><span class="token operator">:</span><span class="token function">isNull</span><span class="token punctuation">;</span>
 
-   Predicate&lt;String&gt; isEmpty = String::isEmpty;
-   Predicate&lt;String&gt; isNotEmpty = isEmpty.negate();
+   <span class="token class-name">Predicate</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> isEmpty <span class="token operator">=</span> <span class="token class-name">String</span><span class="token operator">:</span><span class="token operator">:</span><span class="token function">isEmpty</span><span class="token punctuation">;</span>
+   <span class="token class-name">Predicate</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> isNotEmpty <span class="token operator">=</span> isEmpty<span class="token punctuation">.</span><span class="token function">negate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-   isNotEmpty.and(isEmpty).test(var1);
-}
+   isNotEmpty<span class="token punctuation">.</span><span class="token function">and</span><span class="token punctuation">(</span>isEmpty<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">test</span><span class="token punctuation">(</span>var1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </li>
 <li><p><strong>Functions</strong></p>
 <p>Function&#x63A5;&#x53E3;&#x63A5;&#x6536;&#x4E00;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x5355;&#x4E00;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x9ED8;&#x8BA4;&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x5C06;&#x591A;&#x4E2A;&#x51FD;&#x6570;&#x4E32;&#x5728;&#x4E00;&#x8D77;</p>
-<pre><code class="lang-java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>{
-   Function&lt;String, Integer&gt; toInteger = Integer::valueOf;
-   Function&lt;String, String&gt; backToString = toInteger.andThen(String::valueOf);
+<pre class="language-"><code class="lang-java"><span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+   <span class="token class-name">Function</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">Integer</span><span class="token punctuation">&gt;</span></span> toInteger <span class="token operator">=</span> <span class="token class-name">Integer</span><span class="token operator">:</span><span class="token operator">:</span><span class="token function">valueOf</span><span class="token punctuation">;</span>
+   <span class="token class-name">Function</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">,</span> <span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> backToString <span class="token operator">=</span> toInteger<span class="token punctuation">.</span><span class="token function">andThen</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token operator">:</span><span class="token operator">:</span><span class="token function">valueOf</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-   System.out.println(toInteger.apply(<span class="hljs-string">&quot;123&quot;</span>));
-   System.out.println(backToString.apply(<span class="hljs-string">&quot;123&quot;</span>));
-}
+   <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>toInteger<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token string">&quot;123&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+   <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>backToString<span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token string">&quot;123&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
 </code></pre>
 </li>
 <li><p><strong>Suppliers</strong></p>
 <p>Supplier&#x63A5;&#x53E3;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x7ED9;&#x5B9A;&#x7C7B;&#x578B;&#x7684;&#x7ED3;&#x679C;&#x3002;&#x4E0E;Function&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;Supplier&#x6CA1;&#x6709;&#x8F93;&#x5165;&#x53C2;&#x6570;&#x3002;</p>
-<pre><code class="lang-java">Supplier&lt;Person&gt; personSupplier = Person::<span class="hljs-keyword">new</span>;
-Person p = personSupplier.get();   <span class="hljs-comment">// new Person</span>
+<pre class="language-"><code class="lang-java"><span class="token class-name">Supplier</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Person</span><span class="token punctuation">&gt;</span></span> personSupplier <span class="token operator">=</span> <span class="token class-name">Person</span><span class="token operator">:</span><span class="token operator">:</span><span class="token keyword">new</span><span class="token punctuation">;</span>
+<span class="token class-name">Person</span> p <span class="token operator">=</span> personSupplier<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// new Person</span>
 </code></pre>
 </li>
 <li><p><strong>Consumers</strong></p>
 <p>Consumer&#x4EE3;&#x8868;&#x4E86;&#x5728;&#x4E00;&#x4E2A;&#x8F93;&#x5165;&#x53C2;&#x6570;&#x4E0A;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x7684;&#x64CD;&#x4F5C;&#x3002;</p>
-<pre><code class="lang-java">Consumer&lt;Person&gt; greeter = (p) -&gt; System.out.println(<span class="hljs-string">&quot;Hello, &quot;</span> + p.getName());
-greeter.accept(<span class="hljs-keyword">new</span> Person(<span class="hljs-string">&quot;&#x8D31;&#x660E;&quot;</span>));
+<pre class="language-"><code class="lang-java"><span class="token class-name">Consumer</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Person</span><span class="token punctuation">&gt;</span></span> greeter <span class="token operator">=</span> <span class="token punctuation">(</span>p<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span><span class="token string">&quot;Hello, &quot;</span> <span class="token operator">+</span> p<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+greeter<span class="token punctuation">.</span><span class="token function">accept</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">&quot;&#x8D31;&#x660E;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 </li>
 <li><p><strong>Comparators</strong></p>
 <p>Comparator&#x63A5;&#x53E3;&#x5728;&#x65E9;&#x671F;&#x7684;Java&#x7248;&#x672C;&#x4E2D;&#x975E;&#x5E38;&#x8457;&#x540D;&#x3002;Java 8 &#x4E3A;&#x8FD9;&#x4E2A;&#x63A5;&#x53E3;&#x6DFB;&#x52A0;&#x4E86;&#x4E0D;&#x540C;&#x7684;&#x9ED8;&#x8BA4;&#x65B9;&#x6CD5;&#x3002;</p>
-<pre><code class="lang-java">Comparator&lt;Person&gt; comparator = (p1, p2) -&gt; p1.getName().compareTo(p2.getName());
+<pre class="language-"><code class="lang-java"><span class="token class-name">Comparator</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">Person</span><span class="token punctuation">&gt;</span></span> comparator <span class="token operator">=</span> <span class="token punctuation">(</span>p1<span class="token punctuation">,</span> p2<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> p1<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">compareTo</span><span class="token punctuation">(</span>p2<span class="token punctuation">.</span><span class="token function">getName</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-Person p1 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">&quot;&#x8D31;&#x660E;&quot;</span>);
-Person p2 = <span class="hljs-keyword">new</span> Person(<span class="hljs-string">&quot;&#x5B66;&#x53CB;&quot;</span>);
+<span class="token class-name">Person</span> p1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">&quot;&#x8D31;&#x660E;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token class-name">Person</span> p2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token string">&quot;&#x5B66;&#x53CB;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-System.out.println(comparator.compare(p1, p2));             <span class="hljs-comment">// &gt; 1105</span>
-System.out.println(comparator.reversed().compare(p1, p2));  <span class="hljs-comment">// &lt; -1105</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>comparator<span class="token punctuation">.</span><span class="token function">compare</span><span class="token punctuation">(</span>p1<span class="token punctuation">,</span> p2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">// &gt; 1105</span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>comparator<span class="token punctuation">.</span><span class="token function">reversed</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">compare</span><span class="token punctuation">(</span>p1<span class="token punctuation">,</span> p2<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// &lt; -1105</span>
 </code></pre>
 </li>
 <li><p><strong>Optionals</strong></p>
 <p>Optional&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x5F0F;&#x63A5;&#x53E3;&#xFF0C;&#x800C;&#x662F;&#x4E00;&#x4E2A;&#x7CBE;&#x5DE7;&#x7684;&#x5DE5;&#x5177;&#x63A5;&#x53E3;&#xFF0C;&#x7528;&#x6765;&#x9632;&#x6B62;NullPointerException&#x4EA7;&#x751F;&#x3002;
 Optional&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x503C;&#x5BB9;&#x5668;&#xFF0C;&#x8FD9;&#x4E2A;&#x503C;&#x53EF;&#x4EE5;&#x662F;null&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;non-null&#x3002;&#x8003;&#x8651;&#x5230;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x53EF;&#x80FD;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;non-null&#x7684;&#x503C;&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x7A7A;&#x503C;&#x3002;&#x4E3A;&#x4E86;&#x4E0D;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;null&#xFF0C;&#x6211;&#x4EEC;&#x5728;Java 8&#x4E2D;&#x5C31;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;Optional&#x3002;</p>
-<pre><code class="lang-java">Optional&lt;String&gt; optional = Optional.of(<span class="hljs-string">&quot;&#x8D31;&#x660E;&quot;</span>);
+<pre class="language-"><code class="lang-java"><span class="token class-name">Optional</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token class-name">String</span><span class="token punctuation">&gt;</span></span> optional <span class="token operator">=</span> <span class="token class-name">Optional</span><span class="token punctuation">.</span><span class="token function">of</span><span class="token punctuation">(</span><span class="token string">&quot;&#x8D31;&#x660E;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-System.out.println(optional.isPresent()); <span class="hljs-comment">// true      </span>
-System.out.println(optional.get()); <span class="hljs-comment">// &#x8D31;&#x660E;   </span>
-System.out.println(optional.orElse(<span class="hljs-string">&quot;&#x5B66;&#x53CB;&quot;</span>)); <span class="hljs-comment">// &#x8D31;&#x660E;    </span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>optional<span class="token punctuation">.</span><span class="token function">isPresent</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true      </span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>optional<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x8D31;&#x660E;   </span>
+<span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>optional<span class="token punctuation">.</span><span class="token function">orElse</span><span class="token punctuation">(</span><span class="token string">&quot;&#x5B66;&#x53CB;&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x8D31;&#x660E;    </span>
 
-optional.ifPresent((s) -&gt; System.out.println(s.charAt(<span class="hljs-number">0</span>)));
+optional<span class="token punctuation">.</span><span class="token function">ifPresent</span><span class="token punctuation">(</span><span class="token punctuation">(</span>s<span class="token punctuation">)</span> <span class="token operator">-&gt;</span> <span class="token class-name">System</span><span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>s<span class="token punctuation">.</span><span class="token function">charAt</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 </code></pre>
 </li>
 </ol>
@@ -437,7 +433,7 @@ optional.ifPresent((s) -&gt; System.out.println(s.charAt(<span class="hljs-numbe
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Java8新特性","level":"1.2","depth":1,"next":{"title":"JDK动态代理","level":"1.3","depth":1,"path":"Java/JDK动态代理.md","ref":"Java/JDK动态代理.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"Java/Java8新特性.md","mtime":"2019-05-04T07:32:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-19T02:08:18.540Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Java8新特性","level":"1.2","depth":1,"next":{"title":"JDK动态代理","level":"1.3","depth":1,"path":"Java/JDK动态代理.md","ref":"Java/JDK动态代理.md","articles":[]},"previous":{"title":"Introduction","level":"1.1","depth":1,"path":"README.md","ref":"README.md","articles":[]},"dir":"ltr"},"config":{"plugins":["disqus","github","prism","-highlight","baidu","splitter","sitemap"],"styles":{},"pluginsConfig":{"prism":{},"disqus":{"useIdentifier":false,"shortName":"its-stupid-handbook"},"github":{"url":"https://github.com/sangskf/it-s-stupid"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"sitemap":{"hostname":"http://books.sangkf.cn/"},"baidu":{"token":"a9787f0ab45d5e237bab522431d0a7ec"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"蠢萌小呆瓜的工作日志","language":"zh-hans","gitbook":"*","description":"蠢萌小呆瓜的工作日志"},"file":{"path":"Java/Java8新特性.md","mtime":"2019-05-04T07:32:24.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-19T02:43:21.124Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -445,6 +441,26 @@ optional.ifPresent((s) -&gt; System.out.println(s.charAt(<span class="hljs-numbe
         
     <script src="../gitbook/gitbook.js"></script>
     <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baidu/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
     
         
         <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
