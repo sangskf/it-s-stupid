@@ -4,18 +4,58 @@
   "language": "zh-hans",
   "plugins": [
     "github",
+    "prism",
     "-highlight",
-    "sitemap"
+    "splitter",
+    "sitemap",
+    "-sharing",
+    "tbfed-pagefooter",
+    "-lunr", 
+    "-search", 
+    "search-plus",
+    "theme-fexa",
+    "-fontsettings",
+    "back-to-top-button",
+    "copy-code-button",
+    "cuav-chapters",
+    "heading-anchors"
   ],
+  "variables": {
+      "themeFexa":{
+          "nav":[
+              {
+                  "url":"http://books.sangkf.cn",
+                  "target":"_blank",
+                  "name": "作者博客"
+              }
+          ]
+      }
+  },
   "pluginsConfig": {
     "github": {
       "url": "https://github.com/sangskf/it-s-stupid"
     },
     "sitemap": {
         "hostname": "http://books.sangkf.cn/"
+    },
+    "sharing": {
+        "weibo": false,
+        "facebook": false,
+        "twitter": false,
+        "google": false,
+        "instapaper": false,
+        "vk": false,
+        "all": [
+            "facebook", "google", "twitter","weibo", "instapaper"
+        ]
+    },
+    "tbfed-pagefooter": {
+        "copyright":"Copyright &copy books.sangkf.cn 2019",
+        "modify_label": "该文件修订时间：",
+        "modify_format": "YYYY-MM-DD HH:mm:ss"
+    },
+    "theme-fexa": {
+        "search-placeholder": "输入关键字搜索"
     }
-  },
-  "styles": {
-    "website": "styles/website.css"
   }
 }
