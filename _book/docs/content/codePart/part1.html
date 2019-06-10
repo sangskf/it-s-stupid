@@ -1,0 +1,701 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>反射工具类 · 蠢萌小呆瓜的工作日志</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-cuav-chapters/cuav-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-fexa/fexa.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="part2.html" />
+    
+    
+    <link rel="prev" href="../java/java2.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+	<div class="header-inner">
+		<!-- LOGO -->
+		<div class="logo"></div>
+		<span class="title"></span>
+
+		<!-- Search -->
+		
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+
+		<!-- Nav -->
+		<ul class="header-nav">
+			<li>
+				<a href="http://books.sangkf.cn" target="_blank">作者博客</a>
+			</li><li>
+				<a href="https://github.com/sangskf/it-s-stupid" target="_blank">GitHub</a>
+			</li>
+		</ul>
+	</div>
+
+	<div class="book-summary">
+		<div class="book-summary-title">文档目录</div>
+		
+		
+		<nav role="navigation">
+			
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Java相关</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../java/java1.html">
+            
+                <a href="../java/java1.html">
+            
+                    
+                    JVM原理讲解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../java/java2.html">
+            
+                <a href="../java/java2.html">
+            
+                    
+                    java同步系列之JMM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">代码片段</li>
+        
+        
+    
+        <li class="chapter active" data-level="3.1" data-path="part1.html">
+            
+                <a href="part1.html">
+            
+                    
+                    反射工具类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="part2.html">
+            
+                <a href="part2.html">
+            
+                    
+                    Cookie工具类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.3" data-path="part3.html">
+            
+                <a href="part3.html">
+            
+                    
+                    Java图片高保真缩放
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+		</nav>
+		
+		
+	</div>
+
+	<!-- Content nav -->
+	<div class="book-anchor">
+		<div class="book-anchor-title">在这篇文章中:</div>
+		<div class="book-anchor-body">
+
+		</div>
+	</div>
+
+	<div class="book-body">
+		
+		<div class="body-inner">
+			
+			
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >反射工具类</a>
+    </h1>
+</div>
+
+
+
+
+			<div class="page-wrapper" tabindex="-1" role="main">
+				<div class="page-inner">
+					
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+					<section class="normal markdown-section">
+						
+						<h1 id="&#x53CD;&#x5C04;&#x5DE5;&#x5177;&#x7C7B;">&#x53CD;&#x5C04;&#x5DE5;&#x5177;&#x7C7B;</h1>
+<pre><code class="lang-java">package com.github.wxiaoqi.security.common.util;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.lang.reflect.ParameterizedType;
+import java.lang.reflect.Type;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.Validate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.util.Assert;
+
+/**
+ * &#x53CD;&#x5C04;&#x5DE5;&#x5177;&#x7C7B;.
+ * &#x63D0;&#x4F9B;&#x8C03;&#x7528;getter/setter&#x65B9;&#x6CD5;, &#x8BBF;&#x95EE;&#x79C1;&#x6709;&#x53D8;&#x91CF;, &#x8C03;&#x7528;&#x79C1;&#x6709;&#x65B9;&#x6CD5;, &#x83B7;&#x53D6;&#x6CDB;&#x578B;&#x7C7B;&#x578B;Class, &#x88AB;AOP&#x8FC7;&#x7684;&#x771F;&#x5B9E;&#x7C7B;&#x7B49;&#x5DE5;&#x5177;&#x51FD;&#x6570;.
+ * @author calvin
+ * @version 2013-01-15
+ */
+@SuppressWarnings(&quot;rawtypes&quot;)
+public class ReflectionUtils {
+
+    private static final String SETTER_PREFIX = &quot;set&quot;;
+
+    private static final String GETTER_PREFIX = &quot;get&quot;;
+
+    private static final String CGLIB_CLASS_SEPARATOR = &quot;$$&quot;;
+
+    private static Logger logger = LoggerFactory.getLogger(ReflectionUtils.class);
+
+    /**
+     * &#x8C03;&#x7528;Getter&#x65B9;&#x6CD5;.
+     * &#x652F;&#x6301;&#x591A;&#x7EA7;&#xFF0C;&#x5982;&#xFF1A;&#x5BF9;&#x8C61;&#x540D;.&#x5BF9;&#x8C61;&#x540D;.&#x65B9;&#x6CD5;
+     */
+    public static Object invokeGetter(Object obj, String propertyName) {
+        Object object = obj;
+        for (String name : StringUtils.split(propertyName, &quot;.&quot;)){
+            String getterMethodName = GETTER_PREFIX + StringUtils.capitalize(name);
+            object = invokeMethod(object, getterMethodName, new Class[] {}, new Object[] {});
+        }
+        return object;
+    }
+
+    /**
+     * &#x8C03;&#x7528;Setter&#x65B9;&#x6CD5;, &#x4EC5;&#x5339;&#x914D;&#x65B9;&#x6CD5;&#x540D;&#x3002;
+     * &#x652F;&#x6301;&#x591A;&#x7EA7;&#xFF0C;&#x5982;&#xFF1A;&#x5BF9;&#x8C61;&#x540D;.&#x5BF9;&#x8C61;&#x540D;.&#x65B9;&#x6CD5;
+     */
+    public static void invokeSetter(Object obj, String propertyName, Object value) {
+        Object object = obj;
+        String[] names = StringUtils.split(propertyName, &quot;.&quot;);
+        for (int i=0; i&lt;names.length; i++){
+            if(i&lt;names.length-1){
+                String getterMethodName = GETTER_PREFIX + StringUtils.capitalize(names[i]);
+                object = invokeMethod(object, getterMethodName, new Class[] {}, new Object[] {});
+            }else{
+                String setterMethodName = SETTER_PREFIX + StringUtils.capitalize(names[i]);
+                invokeMethodByName(object, setterMethodName, new Object[] { value });
+            }
+        }
+    }
+
+    /**
+     * &#x76F4;&#x63A5;&#x8BFB;&#x53D6;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x503C;, &#x65E0;&#x89C6;private/protected&#x4FEE;&#x9970;&#x7B26;, &#x4E0D;&#x7ECF;&#x8FC7;getter&#x51FD;&#x6570;.
+     */
+    public static Object getFieldValue(final Object obj, final String fieldName) {
+        Field field = getAccessibleField(obj, fieldName);
+
+        if (field == null) {
+            throw new IllegalArgumentException(&quot;Could not find field [&quot; + fieldName + &quot;] on target [&quot; + obj + &quot;]&quot;);
+        }
+
+        Object result = null;
+        try {
+            result = field.get(obj);
+        } catch (IllegalAccessException e) {
+            logger.error(&quot;&#x4E0D;&#x53EF;&#x80FD;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;{}&quot;, e.getMessage());
+        }
+        return result;
+    }
+
+    /**
+     * &#x76F4;&#x63A5;&#x8BBE;&#x7F6E;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x503C;, &#x65E0;&#x89C6;private/protected&#x4FEE;&#x9970;&#x7B26;, &#x4E0D;&#x7ECF;&#x8FC7;setter&#x51FD;&#x6570;.
+     */
+    public static void setFieldValue(final Object obj, final String fieldName, final Object value) {
+        Field field = getAccessibleField(obj, fieldName);
+
+        if (field == null) {
+            logger.error(&quot;Could not find field [&quot; + fieldName + &quot;] on target [&quot; + obj + &quot;]&quot;);
+            return;
+            //throw new IllegalArgumentException(&quot;Could not find field [&quot; + fieldName + &quot;] on target [&quot; + obj + &quot;]&quot;);
+        }
+        try {
+            field.set(obj, convert(value, field.getType()));
+        } catch (IllegalAccessException e) {
+            logger.error(&quot;&#x4E0D;&#x53EF;&#x80FD;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;:{}&quot;, e.getMessage());
+        }
+    }
+
+    public static Object convert(Object object, Class&lt;?&gt; type) {
+        if (object instanceof Number) {
+            Number number = (Number) object;
+            if (type.equals(byte.class) || type.equals(Byte.class)) {
+                return number.byteValue();
+            }
+            if (type.equals(short.class) || type.equals(Short.class)) {
+                return number.shortValue();
+            }
+            if (type.equals(int.class) || type.equals(Integer.class)) {
+                return number.intValue();
+            }
+            if (type.equals(long.class) || type.equals(Long.class)) {
+                return number.longValue();
+            }
+            if (type.equals(float.class) || type.equals(Float.class)) {
+                return number.floatValue();
+            }
+            if (type.equals(double.class) || type.equals(Double.class)) {
+                return number.doubleValue();
+            }
+        }
+        if(type.equals(String.class)){
+            return object==null?&quot;&quot;:object.toString();
+        }
+        return object;
+    }
+
+    /**
+     * &#x76F4;&#x63A5;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#x65B9;&#x6CD5;, &#x65E0;&#x89C6;private/protected&#x4FEE;&#x9970;&#x7B26;.
+     * &#x7528;&#x4E8E;&#x4E00;&#x6B21;&#x6027;&#x8C03;&#x7528;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5426;&#x5219;&#x5E94;&#x4F7F;&#x7528;getAccessibleMethod()&#x51FD;&#x6570;&#x83B7;&#x5F97;Method&#x540E;&#x53CD;&#x590D;&#x8C03;&#x7528;.
+     * &#x540C;&#x65F6;&#x5339;&#x914D;&#x65B9;&#x6CD5;&#x540D;+&#x53C2;&#x6570;&#x7C7B;&#x578B;&#xFF0C;
+     */
+    public static Object invokeMethod(final Object obj, final String methodName, final Class&lt;?&gt;[] parameterTypes,
+            final Object[] args) {
+        Method method = getAccessibleMethod(obj, methodName, parameterTypes);
+        if (method == null) {
+            throw new IllegalArgumentException(&quot;Could not find method [&quot; + methodName + &quot;] on target [&quot; + obj + &quot;]&quot;);
+        }
+
+        try {
+            return method.invoke(obj, args);
+        } catch (Exception e) {
+            throw convertReflectionExceptionToUnchecked(e);
+        }
+    }
+
+    /**
+     * &#x76F4;&#x63A5;&#x8C03;&#x7528;&#x5BF9;&#x8C61;&#x65B9;&#x6CD5;, &#x65E0;&#x89C6;private/protected&#x4FEE;&#x9970;&#x7B26;&#xFF0C;
+     * &#x7528;&#x4E8E;&#x4E00;&#x6B21;&#x6027;&#x8C03;&#x7528;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5426;&#x5219;&#x5E94;&#x4F7F;&#x7528;getAccessibleMethodByName()&#x51FD;&#x6570;&#x83B7;&#x5F97;Method&#x540E;&#x53CD;&#x590D;&#x8C03;&#x7528;.
+     * &#x53EA;&#x5339;&#x914D;&#x51FD;&#x6570;&#x540D;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x591A;&#x4E2A;&#x540C;&#x540D;&#x51FD;&#x6570;&#x8C03;&#x7528;&#x7B2C;&#x4E00;&#x4E2A;&#x3002;
+     */
+    public static Object invokeMethodByName(final Object obj, final String methodName, final Object[] args) {
+        Method method = getAccessibleMethodByName(obj, methodName);
+        if (method == null) {
+            throw new IllegalArgumentException(&quot;Could not find method [&quot; + methodName + &quot;] on target [&quot; + obj + &quot;]&quot;);
+        }
+
+        try {
+            return method.invoke(obj, args);
+        } catch (Exception e) {
+            throw convertReflectionExceptionToUnchecked(e);
+        }
+    }
+
+    /**
+     * &#x5FAA;&#x73AF;&#x5411;&#x4E0A;&#x8F6C;&#x578B;, &#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x7684;DeclaredField, &#x5E76;&#x5F3A;&#x5236;&#x8BBE;&#x7F6E;&#x4E3A;&#x53EF;&#x8BBF;&#x95EE;.
+     * 
+     * &#x5982;&#x5411;&#x4E0A;&#x8F6C;&#x578B;&#x5230;Object&#x4ECD;&#x65E0;&#x6CD5;&#x627E;&#x5230;, &#x8FD4;&#x56DE;null.
+     */
+    public static Field getAccessibleField(final Object obj, final String fieldName) {
+        Validate.notNull(obj, &quot;object can&apos;t be null&quot;);
+        Validate.notBlank(fieldName, &quot;fieldName can&apos;t be blank&quot;);
+        for (Class&lt;?&gt; superClass = obj.getClass(); superClass != Object.class; superClass = superClass.getSuperclass()) {
+            try {
+                Field field = superClass.getDeclaredField(fieldName);
+                makeAccessible(field);
+                return field;
+            } catch (NoSuchFieldException e) {//NOSONAR
+                // Field&#x4E0D;&#x5728;&#x5F53;&#x524D;&#x7C7B;&#x5B9A;&#x4E49;,&#x7EE7;&#x7EED;&#x5411;&#x4E0A;&#x8F6C;&#x578B;
+                continue;// new add
+            }
+        }
+        return null;
+    }
+
+    /**
+     * &#x5FAA;&#x73AF;&#x5411;&#x4E0A;&#x8F6C;&#x578B;, &#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x7684;DeclaredMethod,&#x5E76;&#x5F3A;&#x5236;&#x8BBE;&#x7F6E;&#x4E3A;&#x53EF;&#x8BBF;&#x95EE;.
+     * &#x5982;&#x5411;&#x4E0A;&#x8F6C;&#x578B;&#x5230;Object&#x4ECD;&#x65E0;&#x6CD5;&#x627E;&#x5230;, &#x8FD4;&#x56DE;null.
+     * &#x5339;&#x914D;&#x51FD;&#x6570;&#x540D;+&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x3002;
+     * 
+     * &#x7528;&#x4E8E;&#x65B9;&#x6CD5;&#x9700;&#x8981;&#x88AB;&#x591A;&#x6B21;&#x8C03;&#x7528;&#x7684;&#x60C5;&#x51B5;. &#x5148;&#x4F7F;&#x7528;&#x672C;&#x51FD;&#x6570;&#x5148;&#x53D6;&#x5F97;Method,&#x7136;&#x540E;&#x8C03;&#x7528;Method.invoke(Object obj, Object... args)
+     */
+    public static Method getAccessibleMethod(final Object obj, final String methodName,
+            final Class&lt;?&gt;... parameterTypes) {
+        Validate.notNull(obj, &quot;object can&apos;t be null&quot;);
+        Validate.notBlank(methodName, &quot;methodName can&apos;t be blank&quot;);
+
+        for (Class&lt;?&gt; searchType = obj.getClass(); searchType != Object.class; searchType = searchType.getSuperclass()) {
+            try {
+                Method method = searchType.getDeclaredMethod(methodName, parameterTypes);
+                makeAccessible(method);
+                return method;
+            } catch (NoSuchMethodException e) {
+                // Method&#x4E0D;&#x5728;&#x5F53;&#x524D;&#x7C7B;&#x5B9A;&#x4E49;,&#x7EE7;&#x7EED;&#x5411;&#x4E0A;&#x8F6C;&#x578B;
+                continue;// new add
+            }
+        }
+        return null;
+    }
+
+    /**
+     * &#x5FAA;&#x73AF;&#x5411;&#x4E0A;&#x8F6C;&#x578B;, &#x83B7;&#x53D6;&#x5BF9;&#x8C61;&#x7684;DeclaredMethod,&#x5E76;&#x5F3A;&#x5236;&#x8BBE;&#x7F6E;&#x4E3A;&#x53EF;&#x8BBF;&#x95EE;.
+     * &#x5982;&#x5411;&#x4E0A;&#x8F6C;&#x578B;&#x5230;Object&#x4ECD;&#x65E0;&#x6CD5;&#x627E;&#x5230;, &#x8FD4;&#x56DE;null.
+     * &#x53EA;&#x5339;&#x914D;&#x51FD;&#x6570;&#x540D;&#x3002;
+     * 
+     * &#x7528;&#x4E8E;&#x65B9;&#x6CD5;&#x9700;&#x8981;&#x88AB;&#x591A;&#x6B21;&#x8C03;&#x7528;&#x7684;&#x60C5;&#x51B5;. &#x5148;&#x4F7F;&#x7528;&#x672C;&#x51FD;&#x6570;&#x5148;&#x53D6;&#x5F97;Method,&#x7136;&#x540E;&#x8C03;&#x7528;Method.invoke(Object obj, Object... args)
+     */
+    public static Method getAccessibleMethodByName(final Object obj, final String methodName) {
+        Validate.notNull(obj, &quot;object can&apos;t be null&quot;);
+        Validate.notBlank(methodName, &quot;methodName can&apos;t be blank&quot;);
+
+        for (Class&lt;?&gt; searchType = obj.getClass(); searchType != Object.class; searchType = searchType.getSuperclass()) {
+            Method[] methods = searchType.getDeclaredMethods();
+            for (Method method : methods) {
+                if (method.getName().equals(methodName)) {
+                    makeAccessible(method);
+                    return method;
+                }
+            }
+        }
+        return null;
+    }
+
+    /**
+     * &#x6539;&#x53D8;private/protected&#x7684;&#x65B9;&#x6CD5;&#x4E3A;public&#xFF0C;&#x5C3D;&#x91CF;&#x4E0D;&#x8C03;&#x7528;&#x5B9E;&#x9645;&#x6539;&#x52A8;&#x7684;&#x8BED;&#x53E5;&#xFF0C;&#x907F;&#x514D;JDK&#x7684;SecurityManager&#x62B1;&#x6028;&#x3002;
+     */
+    public static void makeAccessible(Method method) {
+        if ((!Modifier.isPublic(method.getModifiers()) || !Modifier.isPublic(method.getDeclaringClass().getModifiers()))
+                &amp;&amp; !method.isAccessible()) {
+            method.setAccessible(true);
+        }
+    }
+
+    /**
+     * &#x6539;&#x53D8;private/protected&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x4E3A;public&#xFF0C;&#x5C3D;&#x91CF;&#x4E0D;&#x8C03;&#x7528;&#x5B9E;&#x9645;&#x6539;&#x52A8;&#x7684;&#x8BED;&#x53E5;&#xFF0C;&#x907F;&#x514D;JDK&#x7684;SecurityManager&#x62B1;&#x6028;&#x3002;
+     */
+    public static void makeAccessible(Field field) {
+        if ((!Modifier.isPublic(field.getModifiers()) || !Modifier.isPublic(field.getDeclaringClass().getModifiers()) || Modifier
+                .isFinal(field.getModifiers())) &amp;&amp; !field.isAccessible()) {
+            field.setAccessible(true);
+        }
+    }
+
+    /**
+     * &#x901A;&#x8FC7;&#x53CD;&#x5C04;, &#x83B7;&#x5F97;Class&#x5B9A;&#x4E49;&#x4E2D;&#x58F0;&#x660E;&#x7684;&#x6CDB;&#x578B;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x578B;, &#x6CE8;&#x610F;&#x6CDB;&#x578B;&#x5FC5;&#x987B;&#x5B9A;&#x4E49;&#x5728;&#x7236;&#x7C7B;&#x5904;
+     * &#x5982;&#x65E0;&#x6CD5;&#x627E;&#x5230;, &#x8FD4;&#x56DE;Object.class.
+     * eg.
+     * public UserDao extends HibernateDao&lt;User&gt;
+     *
+     * @param clazz The class to introspect
+     * @return the first generic declaration, or Object.class if cannot be determined
+     */
+    @SuppressWarnings(&quot;unchecked&quot;)
+    public static &lt;T&gt; Class&lt;T&gt; getClassGenricType(final Class clazz) {
+        return getClassGenricType(clazz, 0);
+    }
+
+    /**
+     * &#x901A;&#x8FC7;&#x53CD;&#x5C04;, &#x83B7;&#x5F97;Class&#x5B9A;&#x4E49;&#x4E2D;&#x58F0;&#x660E;&#x7684;&#x7236;&#x7C7B;&#x7684;&#x6CDB;&#x578B;&#x53C2;&#x6570;&#x7684;&#x7C7B;&#x578B;.
+     * &#x5982;&#x65E0;&#x6CD5;&#x627E;&#x5230;, &#x8FD4;&#x56DE;Object.class.
+     * 
+     * &#x5982;public UserDao extends HibernateDao&lt;User,Long&gt;
+     *
+     * @param clazz clazz The class to introspect
+     * @param index the Index of the generic ddeclaration,start from 0.
+     * @return the index generic declaration, or Object.class if cannot be determined
+     */
+    public static Class getClassGenricType(final Class clazz, final int index) {
+
+        Type genType = clazz.getGenericSuperclass();
+
+        if (!(genType instanceof ParameterizedType)) {
+            logger.warn(clazz.getSimpleName() + &quot;&apos;s superclass not ParameterizedType&quot;);
+            return Object.class;
+        }
+
+        Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
+
+        if (index &gt;= params.length || index &lt; 0) {
+            logger.warn(&quot;Index: &quot; + index + &quot;, Size of &quot; + clazz.getSimpleName() + &quot;&apos;s Parameterized Type: &quot;
+                    + params.length);
+            return Object.class;
+        }
+        if (!(params[index] instanceof Class)) {
+            logger.warn(clazz.getSimpleName() + &quot; not set the actual class on superclass generic parameter&quot;);
+            return Object.class;
+        }
+
+        return (Class) params[index];
+    }
+
+    public static Class&lt;?&gt; getUserClass(Object instance) {
+        Assert.notNull(instance, &quot;Instance must not be null&quot;);
+        Class clazz = instance.getClass();
+        if (clazz != null &amp;&amp; clazz.getName().contains(CGLIB_CLASS_SEPARATOR)) {
+            Class&lt;?&gt; superClass = clazz.getSuperclass();
+            if (superClass != null &amp;&amp; !Object.class.equals(superClass)) {
+                return superClass;
+            }
+        }
+        return clazz;
+
+    }
+
+    /**
+     * &#x5C06;&#x53CD;&#x5C04;&#x65F6;&#x7684;checked exception&#x8F6C;&#x6362;&#x4E3A;unchecked exception.
+     */
+    public static RuntimeException convertReflectionExceptionToUnchecked(Exception e) {
+        if (e instanceof IllegalAccessException || e instanceof IllegalArgumentException
+                || e instanceof NoSuchMethodException) {
+            return new IllegalArgumentException(e);
+        } else if (e instanceof InvocationTargetException) {
+            return new RuntimeException(((InvocationTargetException) e).getTargetException());
+        } else if (e instanceof RuntimeException) {
+            return (RuntimeException) e;
+        }
+        return new RuntimeException(&quot;Unexpected Checked Exception.&quot;, e);
+    }
+    /**
+     * &#x5224;&#x65AD;&#x67D0;&#x4E2A;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x62E5;&#x6709;&#x67D0;&#x4E2A;&#x5C5E;&#x6027;
+     * 
+     * @param obj &#x5BF9;&#x8C61;
+     * @param fieldName &#x5C5E;&#x6027;&#x540D;
+     * @return &#x6709;&#x5C5E;&#x6027;&#x8FD4;&#x56DE;true
+     *                 &#x65E0;&#x5C5E;&#x6027;&#x8FD4;&#x56DE;false
+     */
+    public static boolean hasField(final Object obj, final String fieldName){
+        Field field = getAccessibleField(obj, fieldName);
+        if (field == null) {
+            return false;
+        }
+        return true;
+
+    }
+}
+</code></pre>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; books.sangkf.cn 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-05-19 17:31:13
+</span></footer>
+						
+					</section>
+					
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+				</div>
+			</div>
+			
+		</div>
+
+		
+		
+		<a href="../java/java2.html" class="navigation navigation-prev " aria-label="Previous page: java同步系列之JMM">
+			<i class="fa fa-angle-left"></i>
+		</a>
+		
+		
+		<a href="part2.html" class="navigation navigation-next " aria-label="Next page: Cookie工具类">
+			<i class="fa fa-angle-right"></i>
+		</a>
+		
+		
+		
+	</div>
+	<script>
+		var gitbook = gitbook || [];
+		gitbook.push(function() {
+			gitbook.page.hasChanged({"page":{"title":"反射工具类","level":"3.1","depth":1,"next":{"title":"Cookie工具类","level":"3.2","depth":1,"path":"content/codePart/part2.md","ref":"content/codePart/part2.md","articles":[]},"previous":{"title":"java同步系列之JMM","level":"2.2","depth":1,"path":"content/java/java2.md","ref":"content/java/java2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","-sharing","-fontsettings","sitemap","tbfed-pagefooter","-lunr","-search","search-plus","theme-fexa","back-to-top-button","copy-code-button","cuav-chapters","heading-anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy books.sangkf.cn 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"styles":{"website":"styles/website.css"},"cuav-chapters":{"summaryMaxSize":20,"useLimitExpanded":false},"theme-fexa":{"search-placeholder":"输入关键字搜索"},"heading-anchors":{},"sitemap":{"hostname":"http://books.sangkf.cn/"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"themeFexa":{"nav":[{"url":"http://books.sangkf.cn","target":"_blank","name":"作者博客"},{"url":"https://github.com/sangskf/it-s-stupid","target":"_blank","name":"GitHub"}]}},"title":"蠢萌小呆瓜的工作日志","language":"zh-hans","gitbook":"*","description":"蠢萌小呆瓜的工作日志"},"file":{"path":"content/codePart/part1.md","mtime":"2019-05-19T09:31:13.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-19T13:10:19.659Z"},"basePath":"../..","book":{"language":""}});
+		});
+	</script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-cuav-chapters/cuav-chapters.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/1.2.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-heading-anchors/anchor-style.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-fexa/fexa.js"></script>
+        
+    
+
+    </body>
+</html>
+
