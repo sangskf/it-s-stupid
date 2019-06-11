@@ -1,0 +1,490 @@
+
+<!DOCTYPE HTML>
+<html lang="zh-hans" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Nginx进阶配置 · 蠢萌小呆瓜的工作日志</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search-plus/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-cuav-chapters/cuav-chapters.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-theme-fexa/fexa.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../../styles/website.css">
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    <link rel="next" href="tomcat.html" />
+    
+    
+    <link rel="prev" href="nginx_1.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+	<div class="header-inner">
+		<!-- LOGO -->
+		<div class="logo"></div>
+		<span class="title"></span>
+
+		<!-- Search -->
+		
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="输入并搜索" />
+</div>
+
+
+		<!-- Nav -->
+		<ul class="header-nav">
+			<li>
+				<a href="http://books.sangkf.cn" target="_blank">作者博客</a>
+			</li><li>
+				<a href="https://github.com/sangskf/it-s-stupid" target="_blank">GitHub</a>
+			</li>
+		</ul>
+	</div>
+
+	<div class="book-summary">
+		<div class="book-summary-title">文档目录</div>
+		
+		
+		<nav role="navigation">
+			
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../../">
+            
+                <a href="../../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Spring专题</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../spring/transcation.html">
+            
+                <a href="../spring/transcation.html">
+            
+                    
+                    Spring 事务管理
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Java相关</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="../java/java1.html">
+            
+                <a href="../java/java1.html">
+            
+                    
+                    JVM原理讲解
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="3.2" data-path="../java/java2.html">
+            
+                <a href="../java/java2.html">
+            
+                    
+                    java同步系列之JMM
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">Linux专题</li>
+        
+        
+    
+        <li class="chapter " data-level="4.1" data-path="linux_1.html">
+            
+                <a href="linux_1.html">
+            
+                    
+                    几个Linux常用命令
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.2" data-path="nginx_1.html">
+            
+                <a href="nginx_1.html">
+            
+                    
+                    Nginx参数配置说明
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="4.3" data-path="nginx_2.html">
+            
+                <a href="nginx_2.html">
+            
+                    
+                    Nginx进阶配置
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="4.4" data-path="tomcat.html">
+            
+                <a href="tomcat.html">
+            
+                    
+                    Tomcat最佳实践
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">代码片段</li>
+        
+        
+    
+        <li class="chapter " data-level="5.1" data-path="../codePart/part1.html">
+            
+                <a href="../codePart/part1.html">
+            
+                    
+                    反射工具类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.2" data-path="../codePart/part2.html">
+            
+                <a href="../codePart/part2.html">
+            
+                    
+                    Cookie工具类
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="5.3" data-path="../codePart/part3.html">
+            
+                <a href="../codePart/part3.html">
+            
+                    
+                    Java图片高保真缩放
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            本书使用 GitBook 发布
+        </a>
+    </li>
+</ul>
+
+
+		</nav>
+		
+		
+	</div>
+
+	<!-- Content nav -->
+	<div class="book-anchor">
+		<div class="book-anchor-title">在这篇文章中:</div>
+		<div class="book-anchor-body">
+
+		</div>
+	</div>
+
+	<div class="book-body">
+		
+		<div class="body-inner">
+			
+			
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../.." >Nginx进阶配置</a>
+    </h1>
+</div>
+
+
+
+
+			<div class="page-wrapper" tabindex="-1" role="main">
+				<div class="page-inner">
+					
+<div class="search-plus" id="book-search-results">
+    <div class="search-noresults">
+    
+					<section class="normal markdown-section">
+						
+						<h1 id="nginx&#x8FDB;&#x9636;&#x914D;&#x7F6E;">Nginx&#x8FDB;&#x9636;&#x914D;&#x7F6E;</h1>
+<h3 id="&#x9759;&#x6001;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x5668;">&#x9759;&#x6001;&#x6587;&#x4EF6;&#x670D;&#x52A1;&#x5668;</h3>
+<p>&#x5728;Java&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4EE5;&#x53CA;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x4E2D;&#xFF0C;&#x6700;&#x5E38;&#x7528;&#x7684;web&#x5E94;&#x7528;&#x670D;&#x52A1;&#x5668;&#x5F53;&#x5C5E;Tomcat&#xFF0C;&#x5C3D;&#x7BA1;&#x8FD9;&#x53EA;&#x732B;&#x4E5F;&#x80FD;&#x591F;&#x5904;&#x7406;&#x4E00;&#x4E9B;&#x9759;&#x6001;&#x8BF7;&#x6C42;&#xFF0C;&#x4F8B;&#x5982;&#x56FE;&#x7247;&#x3001;html&#x3001;&#x6837;&#x5F0F;&#x6587;&#x4EF6;&#x7B49;&#xFF0C;&#x4F46;&#x662F;&#x6548;&#x7387;&#x5E76;&#x4E0D;&#x662F;&#x90A3;&#x4E48;&#x5C3D;&#x4EBA;&#x610F;&#x3002;&#x6240;&#x4EE5;&#x5728;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x4E00;&#x822C;&#x4F7F;&#x7528;Nginx&#x4EE3;&#x7406;&#x670D;&#x52A1;&#x5668;&#x6765;&#x5904;&#x7406;&#x9759;&#x6001;&#x6587;&#x4EF6;&#xFF0C;&#x6765;&#x63D0;&#x5347;&#x7F51;&#x7AD9;&#x6027;&#x80FD;&#x3002;</p>
+<pre><code>server {
+        listen  80;
+        server_name  file.52itstyle.com;
+        charset utf-8;
+        #root &#x6307;&#x4EE4;&#x7528;&#x6765;&#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x5728;&#x670D;&#x52A1;&#x5668;&#x4E0A;&#x7684;&#x57FA;&#x8DEF;&#x5F84;
+        root /data/statics;
+        #location&#x6307;&#x4EE4;&#x7528;&#x6765;&#x6620;&#x5C04;&#x8BF7;&#x6C42;&#x5230;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;
+        location / {
+           autoindex on; # &#x7D22;&#x5F15;
+           autoindex_exact_size on; # &#x663E;&#x793A;&#x6587;&#x4EF6;&#x5927;&#x5C0F;
+           autoindex_localtime on; # &#x663E;&#x793A;&#x6587;&#x4EF6;&#x65F6;&#x95F4;
+        }
+   }
+</code></pre><h3 id="&#x8D1F;&#x8F7D;&#x5747;&#x8861;">&#x8D1F;&#x8F7D;&#x5747;&#x8861;</h3>
+<p>Nginx &#x63D0;&#x4F9B;&#x8F6E;&#x8BE2;&#xFF08;round robin&#xFF09;&#x3001;IP &#x54C8;&#x5E0C;&#xFF08;client IP&#xFF09;&#x548C;&#x52A0;&#x6743;&#x8F6E;&#x8BE2; 3 &#x79CD;&#x65B9;&#x5F0F;&#xFF0C;&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;Nginx &#x91C7;&#x7528;&#x7684;&#x662F;&#x8F6E;&#x8BE2;&#x3002;</p>
+<h4 id="&#x8F6E;&#x8BE2;&#xFF08;&#x9ED8;&#x8BA4;&#xFF09;">&#x8F6E;&#x8BE2;&#xFF08;&#x9ED8;&#x8BA4;&#xFF09;</h4>
+<p>&#x6BCF;&#x4E2A;&#x8BF7;&#x6C42;&#x6309;&#x65F6;&#x95F4;&#x987A;&#x5E8F;&#x9010;&#x4E00;&#x5206;&#x914D;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x5982;&#x679C;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x5668;down&#x6389;&#xFF0C;&#x80FD;&#x81EA;&#x52A8;&#x5254;&#x9664;&#x3002; </p>
+<pre><code>upstream backserver { 
+server 192.168.1.14; 
+server 192.168.1.15; 
+}
+</code></pre><h4 id="&#x52A0;&#x6743;&#x8F6E;&#x8BE2;">&#x52A0;&#x6743;&#x8F6E;&#x8BE2;</h4>
+<p>&#x6307;&#x5B9A;&#x8F6E;&#x8BE2;&#x51E0;&#x7387;&#xFF0C;weight&#x548C;&#x8BBF;&#x95EE;&#x6BD4;&#x7387;&#x6210;&#x6B63;&#x6BD4;&#xFF0C;&#x7528;&#x4E8E;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x5668;&#x6027;&#x80FD;&#x4E0D;&#x5747;&#x7684;&#x60C5;&#x51B5;&#x3002; </p>
+<pre><code>upstream backserver { 
+server 192.168.1.14 weight=1; 
+server 192.168.1.15 weight=2; 
+}
+</code></pre><h4 id="iphash">ip_hash</h4>
+<p>&#x6BCF;&#x4E2A;&#x8BF7;&#x6C42;&#x6309;&#x8BBF;&#x95EE;ip&#x7684;hash&#x7ED3;&#x679C;&#x5206;&#x914D;&#xFF0C;&#x8FD9;&#x6837;&#x6BCF;&#x4E2A;&#x8BBF;&#x5BA2;&#x56FA;&#x5B9A;&#x8BBF;&#x95EE;&#x4E00;&#x4E2A;&#x540E;&#x7AEF;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;session&#x7684;&#x95EE;&#x9898;&#x3002; </p>
+<pre><code>upstream backserver { 
+ip_hash; 
+server 192.168.0.14; 
+server 192.168.0.15; 
+}
+</code></pre><h4 id="&#x91CD;&#x8BD5;&#x7B56;&#x7565;">&#x91CD;&#x8BD5;&#x7B56;&#x7565;</h4>
+<p>&#x53EF;&#x4EE5;&#x4E3A;&#x6BCF;&#x4E2A; backserver &#x6307;&#x5B9A;&#x6700;&#x5927;&#x7684;&#x91CD;&#x8BD5;&#x6B21;&#x6570;&#xFF0C;&#x548C;&#x91CD;&#x8BD5;&#x65F6;&#x95F4;&#x95F4;&#x9694;,&#x6240;&#x4F7F;&#x7528;&#x7684;&#x5173;&#x952E;&#x5B57;&#x662F; max_fails &#x548C; fail_timeout&#x3002;</p>
+<pre><code>upstream backserver { 
+server 192.168.1.14  weight=1  max_fails=2 fail_timeout=30s; 
+server 192.168.1.15  weight=2  max_fails=2 fail_timeout=30s;
+}
+</code></pre><p>&#x5931;&#x8D25;&#x91CD;&#x8BD5;&#x6B21;&#x6570;&#x4E3A;3&#xFF0C;&#x4E14;&#x8D85;&#x65F6;&#x65F6;&#x95F4;&#x4E3A;30&#x79D2;&#x3002;</p>
+<h4 id="&#x70ED;&#x673A;&#x7B56;&#x7565;">&#x70ED;&#x673A;&#x7B56;&#x7565;</h4>
+<pre><code>upstream backserver { 
+server 192.168.1.14  weight=1  max_fails=2 fail_timeout=30s; 
+server 192.168.1.15  weight=2  max_fails=2 fail_timeout=30s;
+
+server 192.168.1.16 backup;
+}
+</code></pre><p>&#x5F53;&#x6240;&#x6709;&#x7684;&#x975E;&#x5907;&#x673A;&#xFF08;non-backup&#xFF09;&#x90FD;&#x5B95;&#x673A;&#xFF08;down&#xFF09;&#x6216;&#x8005;&#x7E41;&#x5FD9;&#xFF08;busy&#xFF09;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5C31;&#x4F1A;&#x4F7F;&#x7528;&#x7531; backup &#x6807;&#x6CE8;&#x7684;&#x5907;&#x673A;&#x3002;&#x5FC5;&#x987B;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F;&#xFF0C;backup &#x4E0D;&#x80FD;&#x548C; ip_hash &#x5173;&#x952E;&#x5B57;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x3002;</p>
+<h3 id="websocket&#x914D;&#x7F6E;&#x5B9E;&#x4F8B;">WebSocket&#x914D;&#x7F6E;&#x5B9E;&#x4F8B;</h3>
+<p><a href="https://blog.52itstyle.com/archives/736/" target="_blank">Nginx&#x5B66;&#x4E60;&#x4E4B;&#x53CD;&#x5411;&#x4EE3;&#x7406;WebSocket&#x914D;&#x7F6E;&#x5B9E;&#x4F8B; </a></p>
+<footer class="page-footer"><span class="copyright">Copyright &#xA9; books.sangkf.cn 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-06-11 10:00:05
+</span></footer>
+						
+					</section>
+					
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+				</div>
+			</div>
+			
+		</div>
+
+		
+		
+		<a href="nginx_1.html" class="navigation navigation-prev " aria-label="Previous page: Nginx参数配置说明">
+			<i class="fa fa-angle-left"></i>
+		</a>
+		
+		
+		<a href="tomcat.html" class="navigation navigation-next " aria-label="Next page: Tomcat最佳实践">
+			<i class="fa fa-angle-right"></i>
+		</a>
+		
+		
+		
+	</div>
+	<script>
+		var gitbook = gitbook || [];
+		gitbook.push(function() {
+			gitbook.page.hasChanged({"page":{"title":"Nginx进阶配置","level":"4.3","depth":1,"next":{"title":"Tomcat最佳实践","level":"4.4","depth":1,"path":"content/linux/tomcat.md","ref":"content/linux/tomcat.md","articles":[]},"previous":{"title":"Nginx参数配置说明","level":"4.2","depth":1,"path":"content/linux/nginx_1.md","ref":"content/linux/nginx_1.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","-sharing","-fontsettings","sitemap","tbfed-pagefooter","-lunr","-search","search-plus","theme-fexa","back-to-top-button","copy-code-button","cuav-chapters","heading-anchors","livereload"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy books.sangkf.cn 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"styles":{"website":"styles/website.css"},"livereload":{},"cuav-chapters":{"summaryMaxSize":20,"useLimitExpanded":false},"theme-fexa":{"search-placeholder":"输入关键字搜索"},"heading-anchors":{},"sitemap":{"hostname":"http://books.sangkf.cn/"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"themeFexa":{"nav":[{"url":"http://books.sangkf.cn","target":"_blank","name":"作者博客"},{"url":"https://github.com/sangskf/it-s-stupid","target":"_blank","name":"GitHub"}]}},"title":"蠢萌小呆瓜的工作日志","language":"zh-hans","gitbook":"*","description":"蠢萌小呆瓜的工作日志"},"file":{"path":"content/linux/nginx_2.md","mtime":"2019-06-11T02:00:05.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-11T02:02:47.285Z"},"basePath":"../..","book":{"language":""}});
+		});
+	</script>
+</div>
+
+        
+    <script src="../../gitbook/gitbook.js"></script>
+    <script src="../../gitbook/theme.js"></script>
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/jquery.mark.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-search-plus/search.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-copy-code-button/toggle.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-cuav-chapters/cuav-chapters.js"></script>
+        
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/1.2.1/anchor.min.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-heading-anchors/anchor-style.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-livereload/plugin.js"></script>
+        
+    
+        
+        <script src="../../gitbook/gitbook-plugin-theme-fexa/fexa.js"></script>
+        
+    
+
+    </body>
+</html>
+
