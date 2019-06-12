@@ -29,6 +29,9 @@ Tomcat8以后NIO2模式：
             connectionTimeout="20000"
 		    redirectPort="8443"/>
 ```
+
+[【java的服务是每收到一个请求就新开一个线程来处理吗？tomcat呢？】](https://blog.csdn.net/h12kjgj/article/details/55063956)
+
 ### APR
 
 即Apache Portable Runtime，从操作系统层面解决io阻塞问题。Tomcat7或Tomcat8在Win7或以上的系统中启动默认使用这种方式。Linux如果安装了apr和native，Tomcat直接启动就支持apr。

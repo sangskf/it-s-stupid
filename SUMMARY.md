@@ -11,13 +11,12 @@
 * [java同步系列之JMM](content/java/java2.md)
 
 ## Linux专题
-* [几个Linux常用命令](content/linux/linux_1.md)
-* [Nginx参数配置说明](content/linux/nginx_1.md)
-* [Nginx进阶配置](content/linux/nginx_2.md)
-* [Tomcat最佳实践](content/linux/tomcat.md)
+* [几个Linux常用命令](content/linux/linux1.md)
+* [Nginx参数配置说明](content/linux/nginx1.md)
+* [Nginx进阶配置](content/linux/nginx2.md)
+* [Tomcat最佳实践](content/linux/tomcat1.md)
 
 ## 代码片段
-
 * [反射工具类](content/codePart/part1.md)
 * [Cookie工具类](content/codePart/part2.md)
 * [Java图片高保真缩放](content/codePart/part3.md)

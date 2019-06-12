@@ -8,7 +8,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "gitbook build ./ ./docs"
+    "build": "gitbook build ./ ./docs",
+    "serve": "gitbook serve"
   },
   "repository": {
     "type": "git",
