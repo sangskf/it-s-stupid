@@ -9,6 +9,7 @@
 ## Java相关
 * [JVM原理讲解](content/java/java1.md)
 * [java同步系列之JMM](content/java/java2.md)
+* [java学习笔记](content/java/java3.md)
 
 ## Linux专题
 * [几个Linux常用命令](content/linux/linux1.md)

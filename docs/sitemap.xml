@@ -4,6 +4,7 @@
 <url> <loc>http://books.sangkf.cn/content/spring/transcation.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://books.sangkf.cn/content/java/java1.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://books.sangkf.cn/content/java/java2.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>http://books.sangkf.cn/content/java/java3.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://books.sangkf.cn/content/linux/linux1.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://books.sangkf.cn/content/linux/nginx1.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>http://books.sangkf.cn/content/linux/nginx2.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
