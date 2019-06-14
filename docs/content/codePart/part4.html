@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>java学习笔记 · 蠢萌小呆瓜的工作日志</title>
+        <title>日期时间工具类 · 蠢萌小呆瓜的工作日志</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -67,10 +67,8 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../linux/linux1.html" />
     
-    
-    <link rel="prev" href="java2.html" />
+    <link rel="prev" href="part3.html" />
     
 
     </head>
@@ -157,9 +155,9 @@
         
         
     
-        <li class="chapter " data-level="3.1" data-path="java1.html">
+        <li class="chapter " data-level="3.1" data-path="../java/java1.html">
             
-                <a href="java1.html">
+                <a href="../java/java1.html">
             
                     
                     JVM原理讲解
@@ -170,9 +168,9 @@
             
         </li>
     
-        <li class="chapter " data-level="3.2" data-path="java2.html">
+        <li class="chapter " data-level="3.2" data-path="../java/java2.html">
             
-                <a href="java2.html">
+                <a href="../java/java2.html">
             
                     
                     java同步系列之JMM
@@ -183,9 +181,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="3.3" data-path="java3.html">
+        <li class="chapter " data-level="3.3" data-path="../java/java3.html">
             
-                <a href="java3.html">
+                <a href="../java/java3.html">
             
                     
                     java学习笔记
@@ -262,9 +260,9 @@
         
         
     
-        <li class="chapter " data-level="5.1" data-path="../codePart/part1.html">
+        <li class="chapter " data-level="5.1" data-path="part1.html">
             
-                <a href="../codePart/part1.html">
+                <a href="part1.html">
             
                     
                     反射工具类
@@ -275,9 +273,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.2" data-path="../codePart/part2.html">
+        <li class="chapter " data-level="5.2" data-path="part2.html">
             
-                <a href="../codePart/part2.html">
+                <a href="part2.html">
             
                     
                     Cookie工具类
@@ -288,9 +286,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.3" data-path="../codePart/part3.html">
+        <li class="chapter " data-level="5.3" data-path="part3.html">
             
-                <a href="../codePart/part3.html">
+                <a href="part3.html">
             
                     
                     Java图片高保真缩放
@@ -301,9 +299,9 @@
             
         </li>
     
-        <li class="chapter " data-level="5.4" data-path="../codePart/part4.html">
+        <li class="chapter active" data-level="5.4" data-path="part4.html">
             
-                <a href="../codePart/part4.html">
+                <a href="part4.html">
             
                     
                     日期时间工具类
@@ -352,7 +350,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >java学习笔记</a>
+        <a href="../.." >日期时间工具类</a>
     </h1>
 </div>
 
@@ -367,39 +365,123 @@
     
 					<section class="normal markdown-section">
 						
-						<h1 id="java&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;">Java&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;</h1>
-<h2 id="lambda&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x4F7F;&#x7528;&#x524D;&#x63D0;functionalinterface">Lambda&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x4F7F;&#x7528;&#x524D;&#x63D0;(@FunctionalInterface)</h2>
-<ol>
-<li>&#x5FC5;&#x987B;&#x4FDD;&#x8BC1;&#x6709;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;,&#x800C;&#x4E14;&#x5176;&#x4E2D;&#x7684;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;&#x6709;&#x4E14;&#x4EC5;&#x6709;&#x4E00;&#x4E2A;</li>
-<li>&#x5FC5;&#x987B;&#x5177;&#x6709;&#x4E0A;&#x4E0B;&#x6587;&#x73AF;&#x5883;</li>
-</ol>
-<pre><code class="lang-java">public class MainApp {
+						<h1 id="jdk18-&#x65F6;&#x95F4;&#x6233;&#x4E0E;&#x65F6;&#x95F4;&#x683C;&#x5F0F;&#x5316;-&#x5B9E;&#x7528;&#x5DE5;&#x5177;&#x7C7B;">JDK1.8 &#x65F6;&#x95F4;&#x6233;&#x4E0E;&#x65F6;&#x95F4;&#x683C;&#x5F0F;&#x5316; &#x5B9E;&#x7528;&#x5DE5;&#x5177;&#x7C7B;</h1>
+<pre><code class="lang-java">import org.springframework.util.Assert;
 
-    public static void main(String[] args) {
+import java.time.Clock;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
-        sum((a, b) -&gt; a - b);
+/**
+ * @Author: JCccc
+ * @CreateTime: 2018-09-11
+ * @Description:
+ *  2018-12-04 1.&#x4F7F;&#x7528;DateTimeFormatter&#x66FF;&#x6362;&#x4E86;&#x90E8;&#x5206;SimpleDateFormat, &#x56E0;&#x4E3A;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x95EE;&#x9898;&#x3002;
+ *  2.&#x540E;&#x671F;&#x8FD9;&#x4E2A;&#x5DE5;&#x5177;&#x7C7B;&#x5E94;&#x8BE5;&#x9700;&#x8981;&#x4F18;&#x5316;&#xFF0C;&#x56E0;&#x4E3A;&#x6709;Instant,&#x8FD9;&#x4E2A;&#x4E13;&#x95E8;&#x83B7;&#x53D6;&#x65F6;&#x95F4;&#x6233;&#x7684;&#x7C7B;
+ *           2018-12-12 &#x5C06;SimpleDateFormat&#x76F8;&#x5173;&#x7684;&#x65B9;&#x6CD5;&#x5168;&#x90E8;&#x53BB;&#x9664;&#x66FF;&#x6362;
+ */
+public class TimeConversionUtil {
 
-        Calclator calclator = (a, b) -&gt; a + b;
-        System.out.println(calclator.sum(1,2));
+
+   //&#x4F20;&#x5165;long&#x65F6;&#x95F4;&#x6233; &#xFF0C;&#x8F6C;&#x6362;&#x6210;&#x683C;&#x5F0F;&#x5316;&#x7684;String&#x7C7B;&#x578B;&#x65F6;&#x95F4;
+
+    public  String TimeOfLongToStr(long time) {
+        Assert.notNull(time, &quot;time is null&quot;);
+        DateTimeFormatter ftf = DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+        return ftf.format(LocalDateTime.ofInstant(Instant.ofEpochMilli(time), ZoneId.systemDefault()));
+
+    }
+
+    //&#x4F20;&#x5165;String&#x7C7B;&#x578B;&#x683C;&#x5F0F;&#x5316;&#x65F6;&#x95F4;&#xFF0C;&#x8F6C;&#x6362;&#x6210;Long&#x7C7B;&#x578B;&#x7684;&#x65F6;&#x95F4;&#x6233;
+
+    public  long TimeOfStrToLong(String strTime){
+        Assert.notNull(strTime, &quot;time is null&quot;);
+        DateTimeFormatter ftf = DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+        LocalDateTime parse = LocalDateTime.parse(strTime, ftf);
+        return LocalDateTime.from(parse).atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+
     }
 
 
-    public static void sum(Calclator cal) {
-        System.out.println(cal.sum(1223, 12312));
+    //&#x901A;&#x8FC7;LocalDateTime&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x683C;&#x5F0F;&#x5316;&#x65F6;&#x95F4;
+
+    public  static String getTimeStrNow(){
+        //DateTimeFormatter&#x66FF;&#x6362;&#x4E86;SimpleDateFormat, &#x56E0;&#x4E3A;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x95EE;&#x9898;&#x3002;
+        return LocalDateTime.now().format(DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd HH:mm:ss&quot;));
     }
+
+    //&#x901A;&#x8FC7;LocalDateTime&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x683C;&#x5F0F;&#x5316;&#x65F6;&#x95F4;
+
+    public  static  String getTimeStrNow1(){
+        //DateTimeFormatter&#x66FF;&#x6362;&#x4E86;SimpleDateFormat, &#x56E0;&#x4E3A;&#x7EBF;&#x7A0B;&#x5B89;&#x5168;&#x95EE;&#x9898;&#x3002;
+        return LocalDateTime.now().format(DateTimeFormatter.ofPattern(&quot;yyyy-MM-dd&quot;));
+    }
+
+
+    //&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x6233;&#x65B9;&#x6CD5;&#x4E00;
+
+    public long getTimeLongOfClock(){
+
+        return Clock.systemDefaultZone().millis();
+    }
+
+    //&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x6233;&#x65B9;&#x6CD5;&#x4E8C;
+
+    public long getTimeLongOfCalendar(){
+        Calendar calendar = Calendar.getInstance();
+
+        return calendar.getTimeInMillis();
+    }
+
+    //&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x6233;&#x65B9;&#x6CD5;&#x4E09;
+
+    public long getTimeLongOfSystem(){
+
+        return System.currentTimeMillis();
+    }
+
+    //&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x6233;&#x65B9;&#x6CD5;&#x56DB;
+
+    public long getTimeLongOfDate(){
+
+        Date date = new Date();
+
+        return date.getTime();
+    }
+
+    //&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x65F6;&#x95F4;&#x6233;&#x4E94;
+    public long getTimeLongOfInstant(){
+
+        Instant now = Instant.now().plusMillis(TimeUnit.HOURS.toMillis(8));
+     //   System.out.println(&quot;&#x79D2;&#x6570;:&quot;+now.getEpochSecond());
+     //   System.out.println(&quot;&#x6BEB;&#x79D2;&#x6570;:&quot;+now.toEpochMilli());
+        return now.toEpochMilli();
+    }
+
+
+
+////&#x5DE5;&#x5177;&#x7C7B;&#x8C03;&#x8BD5;
+//    public static void main(String[] args) {
+////        TimeConversionUtil timeConversionUtil=new TimeConversionUtil();
+////        System.out.println(timeConversionUtil.getTimeLongOfCalendar());
+////        System.out.println(timeConversionUtil.getTimeLongOfDate());
+////        System.out.println(timeConversionUtil.getTimeLongOfInstant());
+////        System.out.println(timeConversionUtil.TimeOfLongToStr(timeConversionUtil.getTimeLongOfDate()));
+////        System.out.println(TimeConversionUtil.getTimeStrNow());
+//          String a=null;
+//          Assert.notNull(a,&quot;a&#x662F;&#x7A7A;&#x7684;&quot;);
+//
+//    }
 
 }
 </code></pre>
-<h2 id="&#x63A5;&#x53E3;&#x4E2D;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#x548C;&#x9759;&#x6001;&#x65B9;&#x6CD5;">&#x63A5;&#x53E3;&#x4E2D;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x5177;&#x4F53;&#x65B9;&#x6CD5;&#x548C;&#x9759;&#x6001;&#x65B9;&#x6CD5;</h2>
-<ul>
-<li>&#x63A5;&#x53E3;&#x4E2D;&#x7684;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#xFF08;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x5DE5;&#x5382;&#x4F7F;&#x7528;&#xFF09;static</li>
-<li>&#x63A5;&#x53E3;&#x4E2D;&#x7684;&#x9ED8;&#x8BA4;&#x65B9;&#x6CD5; default</li>
-<li>&#x63A5;&#x53E3;&#x4E2D;&#x7684;&#x79C1;&#x6709;&#x65B9;&#x6CD5; private &#xFF08;&#x5305;&#x62EC;&#x79C1;&#x6709;&#x666E;&#x901A;&#x65B9;&#x6CD5;&#x548C;&#x79C1;&#x6709;&#x9759;&#x6001;&#x65B9;&#x6CD5;&#xFF09;</li>
-<li>&#x63A5;&#x53E3;&#x4E2D;&#x7684;&#x5E38;&#x91CF;</li>
-</ul>
-<h2 id="&#x65B9;&#x6CD5;&#x5F15;&#x7528;">&#x65B9;&#x6CD5;&#x5F15;&#x7528;</h2>
 <footer class="page-footer"><span class="copyright">Copyright &#xA9; books.sangkf.cn 2019 all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
-2019-06-13 15:55:57
+2019-06-14 17:54:54
 </span></footer>
 						
 					</section>
@@ -427,14 +509,10 @@
 
 		
 		
-		<a href="java2.html" class="navigation navigation-prev " aria-label="Previous page: java同步系列之JMM">
+		<a href="part3.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Java图片高保真缩放">
 			<i class="fa fa-angle-left"></i>
 		</a>
 		
-		
-		<a href="../linux/linux1.html" class="navigation navigation-next " aria-label="Next page: 几个Linux常用命令">
-			<i class="fa fa-angle-right"></i>
-		</a>
 		
 		
 		
@@ -442,7 +520,7 @@
 	<script>
 		var gitbook = gitbook || [];
 		gitbook.push(function() {
-			gitbook.page.hasChanged({"page":{"title":"java学习笔记","level":"3.3","depth":1,"next":{"title":"几个Linux常用命令","level":"4.1","depth":1,"path":"content/linux/linux1.md","ref":"content/linux/linux1.md","articles":[]},"previous":{"title":"java同步系列之JMM","level":"3.2","depth":1,"path":"content/java/java2.md","ref":"content/java/java2.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","-sharing","-fontsettings","sitemap","tbfed-pagefooter","-lunr","-search","search-plus","theme-fexa","back-to-top-button","copy-code-button","cuav-chapters","heading-anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy books.sangkf.cn 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"styles":{"website":"styles/website.css"},"cuav-chapters":{"summaryMaxSize":20,"useLimitExpanded":false},"theme-fexa":{"search-placeholder":"输入关键字搜索"},"heading-anchors":{},"sitemap":{"hostname":"http://books.sangkf.cn/"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"themeFexa":{"nav":[{"url":"http://books.sangkf.cn","target":"_blank","name":"作者博客"},{"url":"https://github.com/sangskf/it-s-stupid","target":"_blank","name":"GitHub"}]}},"title":"蠢萌小呆瓜的工作日志","language":"zh-hans","gitbook":"*","description":"蠢萌小呆瓜的工作日志"},"file":{"path":"content/java/java3.md","mtime":"2019-06-13T07:55:57.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-14T09:57:36.660Z"},"basePath":"../..","book":{"language":""}});
+			gitbook.page.hasChanged({"page":{"title":"日期时间工具类","level":"5.4","depth":1,"previous":{"title":"Java图片高保真缩放","level":"5.3","depth":1,"path":"content/codePart/part3.md","ref":"content/codePart/part3.md","articles":[]},"dir":"ltr"},"config":{"plugins":["-highlight","-sharing","-fontsettings","sitemap","tbfed-pagefooter","-lunr","-search","search-plus","theme-fexa","back-to-top-button","copy-code-button","cuav-chapters","heading-anchors"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"Copyright &copy books.sangkf.cn 2019","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"styles":{"website":"styles/website.css"},"cuav-chapters":{"summaryMaxSize":20,"useLimitExpanded":false},"theme-fexa":{"search-placeholder":"输入关键字搜索"},"heading-anchors":{},"sitemap":{"hostname":"http://books.sangkf.cn/"},"back-to-top-button":{},"copy-code-button":{},"sharing":{"weibo":false,"facebook":false,"twitter":false,"google":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"search-plus":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{"themeFexa":{"nav":[{"url":"http://books.sangkf.cn","target":"_blank","name":"作者博客"},{"url":"https://github.com/sangskf/it-s-stupid","target":"_blank","name":"GitHub"}]}},"title":"蠢萌小呆瓜的工作日志","language":"zh-hans","gitbook":"*","description":"蠢萌小呆瓜的工作日志"},"file":{"path":"content/codePart/part4.md","mtime":"2019-06-14T09:54:54.000Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-06-14T09:57:36.660Z"},"basePath":"../..","book":{"language":""}});
 		});
 	</script>
 </div>
